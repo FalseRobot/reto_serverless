@@ -1,0 +1,327 @@
+swagger: "2.0"
+info:
+  description: "Servicio personas"
+  version: "1.0.0"
+  title: "people"
+  contact:
+    email: "rpenilla00@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "aws.swagger.io"
+basePath: "/api/people/v1"
+tags:
+- name: "person"
+  description: "Servicio Personas"
+paths:
+  /:
+    post:
+      summary: "Registrar una persona"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Crear persona"
+        required: true
+        schema:
+          $ref: "#/definitions/Rq_crearPersona"
+      responses:
+        201:
+          description: "201 Created"
+          schema:
+            $ref: "#/definitions/Rs_crearPersona"
+    get:
+      summary: "Listar todas las personas registradas"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        201:
+          description: "201 Created"
+          schema:
+            $ref: "#/definitions/Rs_obtenerTodasPersonas"
+  /{id}:
+    get:
+      summary: "Obtener persona por identificador"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Identificador de persona"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 OK"
+          schema:
+            $ref: "#/definitions/Rs_obtenerPersona"
+  /info/{id}:
+    get:
+      summary: "Obtener persona de API Star Wars"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Identificador de persona"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 OK"
+          schema:
+            $ref: "#/definitions/Rs_obtenerPersona"
+schemes:
+- "https"
+- "http"
+definitions:
+  Rq_crearPersona:
+    type: object
+    properties:
+      nacimiento:
+        type: string
+        description: "Año de nacimiento"
+        example: "19 BBY"
+      colorOjos:
+        type: string
+        description: "Color de ojos"
+        example: "Blue"
+      peliculas:
+        type: array
+        description: "Lista de URLs de Peliculas"
+        items:
+          type: string
+          description: "Url de pelicula"
+          example: "https://swapi.py4e.com/api/films/1/"
+      genero:
+        type: string
+        description: "Genero de persona"
+        example: "Male"
+      colorCabello:
+        type: string
+        description: "Color de cabello"
+        example: "Blond"
+      altura:
+        type: string
+        description: "Altura en cm de persona"
+        example: "172"
+      hogar:
+        type: string
+        description: "URL de lugar de nacimiento de persona"
+        example: "https://swapi.py4e.com/api/people/1/"
+      peso:
+        type: string
+        description: "Peso de la persona"
+        example: "77"
+      nombre:
+        type: string
+        description: "Nombre de la persona"
+        example: "Leia Skywalker"
+      colorPiel:
+        type: string
+        description: "Nombre de la persona"
+        example: "Leia Skywalker"
+      especies:
+         type: array
+         description: "lista de especies"
+         items:
+          type: string
+          description: "Url de especie"
+          example: "https://swapi.py4e.com/api/species/1/"
+      navesEspaciales:
+        type: array
+        description: "lista de naves espaciales"
+        items:
+          type: string
+          description: "Url de nave espacial"
+          example: "https://swapi.py4e.com/api/films/1/"
+      url:
+        type: string
+        description: "URL de la persona"
+        example: "https://swapi.py4e.com/api/people/1/"
+      vehiculos:
+        type: array
+        description: "lista de vehiculos"
+        items:
+          type: string
+          description: "Url de vehiculo"
+          example: "https://swapi.py4e.com/api/vehicles/14/"
+  Rs_crearPersona:
+    type: object
+    properties:
+      message:
+        type: string
+        description: "Mensaje de respuesta"
+        example: "Raul Penilla agregado exitosamente."
+      personId:
+        type: string
+        description: "Identificador de persona"
+        example: "28e39340-1fa5-11eb-9548-e9e900077d14"
+  Rs_obtenerPersona:
+    type: object
+    properties:
+      id:
+        type: string
+        description: "Identificador de persona"
+        example: "4241e9e0-1f9b-11eb-921d-61e76df678c5"
+      nacimiento:
+        type: string
+        description: "Año de nacimiento"
+        example: "19 BBY"
+      colorOjos:
+        type: string
+        description: "Color de ojos"
+        example: "Blue"
+      peliculas:
+        type: array
+        description: "Lista de URLs de Peliculas"
+        items:
+          type: string
+          description: "Url de pelicula"
+          example: "https://swapi.py4e.com/api/films/1/"
+      genero:
+        type: string
+        description: "Genero de persona"
+        example: "Male"
+      colorCabello:
+        type: string
+        description: "Color de cabello"
+        example: "Blond"
+      altura:
+        type: string
+        description: "Altura en cm de persona"
+        example: "172"
+      hogar:
+        type: string
+        description: "URL de lugar de nacimiento de persona"
+        example: "https://swapi.py4e.com/api/people/1/"
+      peso:
+        type: string
+        description: "Peso de la persona"
+        example: "77"
+      nombre:
+        type: string
+        description: "Nombre de la persona"
+        example: "Leia Skywalker"
+      colorPiel:
+        type: string
+        description: "Nombre de la persona"
+        example: "Leia Skywalker"
+      especies:
+         type: array
+         description: "lista de especies"
+         items:
+          type: string
+          description: "Url de especie"
+          example: "https://swapi.py4e.com/api/species/1/"
+      navesEspaciales:
+        type: array
+        description: "lista de naves espaciales"
+        items:
+          type: string
+          description: "Url de nave espacial"
+          example: "https://swapi.py4e.com/api/films/1/"
+      url:
+        type: string
+        description: "URL de la persona"
+        example: "https://swapi.py4e.com/api/people/1/"
+      vehiculos:
+        type: array
+        description: "lista de vehiculos"
+        items:
+          type: string
+          description: "Url de vehiculo"
+          example: "https://swapi.py4e.com/api/vehicles/14/"
+  Rs_obtenerTodasPersonas:
+    type: object
+    properties: 
+      personas: 
+        type: array
+        description: "Lista de personas"
+        items: 
+          $ref: "#/definitions/Def_Persona"
+          description: "Lista de personas"
+  Def_Persona:
+    type: object
+    properties:
+      id:
+        type: string
+        description: "Identificador de persona"
+        example: "4241e9e0-1f9b-11eb-921d-61e76df678c5"
+      nacimiento:
+        type: string
+        description: "Año de nacimiento"
+        example: "19 BBY"
+      colorOjos:
+        type: string
+        description: "Color de ojos"
+        example: "Blue"
+      peliculas:
+        type: array
+        description: "Lista de URLs de Peliculas"
+        items:
+          type: string
+          description: "Url de pelicula"
+          example: "https://swapi.py4e.com/api/films/1/"
+      genero:
+        type: string
+        description: "Genero de persona"
+        example: "Male"
+      colorCabello:
+        type: string
+        description: "Color de cabello"
+        example: "Blond"
+      altura:
+        type: string
+        description: "Altura en cm de persona"
+        example: "172"
+      hogar:
+        type: string
+        description: "URL de lugar de nacimiento de persona"
+        example: "https://swapi.py4e.com/api/people/1/"
+      peso:
+        type: string
+        description: "Peso de la persona"
+        example: "77"
+      nombre:
+        type: string
+        description: "Nombre de la persona"
+        example: "Leia Skywalker"
+      colorPiel:
+        type: string
+        description: "Nombre de la persona"
+        example: "Leia Skywalker"
+      especies:
+         type: array
+         description: "lista de especies"
+         items:
+          type: string
+          description: "Url de especie"
+          example: "https://swapi.py4e.com/api/species/1/"
+      navesEspaciales:
+        type: array
+        description: "lista de naves espaciales"
+        items:
+          type: string
+          description: "Url de nave espacial"
+          example: "https://swapi.py4e.com/api/films/1/"
+      url:
+        type: string
+        description: "URL de la persona"
+        example: "https://swapi.py4e.com/api/people/1/"
+      vehiculos:
+        type: array
+        description: "lista de vehiculos"
+        items:
+          type: string
+          description: "Url de vehiculo"
+          example: "https://swapi.py4e.com/api/vehicles/14/"

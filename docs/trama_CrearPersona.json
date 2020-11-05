@@ -1,0 +1,24 @@
+{
+  "nacimiento": "19 BBY",
+  "colorOjos": "Blue",
+  "peliculas": [
+    "https://swapi.py4e.com/api/films/1/"
+  ],
+  "genero": "Male",
+  "colorCabello": "Blond",
+  "altura": "172",
+  "hogar": "https://swapi.py4e.com/api/people/1/",
+  "peso": "77",
+  "nombre": "Leia Skywalker",
+  "colorPiel": "Leia Skywalker",
+  "especies": [
+    "https://swapi.py4e.com/api/species/1/"
+  ],
+  "navesEspaciales": [
+    "https://swapi.py4e.com/api/films/1/"
+  ],
+  "url": "https://swapi.py4e.com/api/people/1/",
+  "vehiculos": [
+    "https://swapi.py4e.com/api/vehicles/14/"
+  ]
+}
